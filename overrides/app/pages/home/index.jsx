@@ -17,6 +17,8 @@ import Seo from '@salesforce/retail-react-app/app/components/seo'
 import Section from '@salesforce/retail-react-app/app/components/section'
 import ProductScroller from '@salesforce/retail-react-app/app/components/product-scroller'
 
+import {motion} from 'framer-motion'
+
 // Others
 import {getAssetUrl} from '@salesforce/pwa-kit-react-sdk/ssr/universal/utils'
 
@@ -97,6 +99,26 @@ const Home = () => {
                         </Button>
                     </Stack>
                 }
+            />
+
+            <motion.div
+                backgroundColor={'red'}
+                className="box"
+                animate={{
+                    backgroundColor: 'teal',
+                    width: '100px',
+                    height: '100px',
+                    scale: [1, 2, 2, 1, 1],
+                    rotate: [0, 0, 180, 180, 0],
+                    borderRadius: ['0%', '0%', '50%', '50%', '0%']
+                }}
+                transition={{
+                    duration: 1,
+                    ease: 'easeInOut',
+                    times: [0, 0.2, 0.5, 0.8, 1],
+                    repeat: 0,
+                    repeatDelay: 1
+                }}
             />
 
             {productSearchResult && (
